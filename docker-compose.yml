@@ -1,0 +1,9 @@
+services:
+  cont_2:
+    build: ./cont_2
+    ports:
+      - "5000:5000"
+  cont_1:
+    build: ./cont_1
+    depends_on:
+      - cont_2
