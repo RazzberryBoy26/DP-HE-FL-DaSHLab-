@@ -1,0 +1,5 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+flwr>=1.13.0
+torch
+torchvision
+numpy

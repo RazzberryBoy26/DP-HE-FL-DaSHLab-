@@ -1,0 +1,34 @@
+services:
+  server:
+    build: ./Global_Server
+    container_name: global_server
+    ports:
+      - "8080:8080"
+    networks:
+      - fl_network
+
+  client1:
+    build: ./Clients
+    container_name: client_node_35pct
+    environment:
+      - CLIENT_ID=1
+      - SERVER_ADDRESS=server:8080
+    depends_on:
+      - server
+    networks:
+      - fl_network
+
+  client2:
+    build: ./Clients
+    container_name: client_node_25pct
+    environment:
+      - CLIENT_ID=2
+      - SERVER_ADDRESS=server:8080
+    depends_on:
+      - server
+    networks:
+      - fl_network
+
+networks:
+  fl_network:
+    driver: bridge
